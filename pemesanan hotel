@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Array
+    string jenisKamar[3] = {"Standard", "Deluxe", "Suite"};
+    int hargaKamar[3] = {300000, 500000, 800000};
+
+    // Variabel
+    int pilihan, lama, totalBayar;
+    bool jalan = true;
+
+    while (jalan) {
+        cout << "=== SISTEM PEMESANAN HOTEL ===" << endl;
+        cout << "1. Standard - Rp300.000/malam" << endl;
+        cout << "2. Deluxe   - Rp500.000/malam" << endl;
+        cout << "3. Suite    - Rp800.000/malam" << endl;
+        cout << "0. Keluar" << endl;
+        cout << "Pilih menu: ";
+        cin >> pilihan;
+
+        // Menu keluar
+        if (pilihan == 0) {
+            cout << "Terima kasih telah menggunakan sistem pemesanan hotel." << endl;
+            jalan = false;
+        }
+        // Validasi menu
+        else if (pilihan < 1 || pilihan > 3) {
+            cout << "Pilihan tidak valid!" << endl;
+        }
+        // Proses pemesanan
+        else {
+            cout << "Lama menginap (malam): ";
+            cin >> lama;
+
+            totalBayar = hargaKamar[pilihan - 1] * lama;
+
+            cout << "\n--- RINCIAN PEMESANAN ---" << endl;
+            cout << "Jenis Kamar : " << jenisKamar[pilihan - 1] << endl;
+            cout << "Lama Inap   : " << lama << " malam" << endl;
+            cout << "Total Bayar : Rp" << totalBayar << endl;
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
